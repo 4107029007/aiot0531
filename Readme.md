@@ -89,10 +89,10 @@ https://aiot0531csl.herokuapp.com/
 
 Success img:
 * 一開始點開的起始畫面就是有用模型預測出的highchart圖
-![image](.img/AI.png)
+![image](./img/AI.png)
 
 * 點擊setRandom可以得到隨機的呈現的highchart(可以從連結中看到有/noAI)
-![image](.img/noAI.png)
+![image](./img/noAI.png)
 
 
 
