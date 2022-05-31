@@ -6,11 +6,11 @@ import json
 app = Flask(__name__)
 #0531 change 1
 # the following configuration must use heroku add-on postgredb
-# myserver ="ec2-54-211-255-161.compute-1.amazonaws.com"
-# myuser="tbufgxkwtezdgp"
-# mypassword="f78345126759bd6f6daa61e3bf91b245ac874cadbd42df836925ba4e9e2b0164"
-# mydb="dd2dls9d93hae6"
-DATABASE_URL = "postgres://hqruyhgchonjdl:bae6e133d2c5df1cb4602258de78dc4c9246498e7d667ee566e636a3ab1f42df@ec2-34-225-159-178.compute-1.amazonaws.com:5432/dc735es5fd9lq6"
+myserver ="ec2-54-211-255-161.compute-1.amazonaws.com"
+myuser="tbufgxkwtezdgp"
+mypassword="f78345126759bd6f6daa61e3bf91b245ac874cadbd42df836925ba4e9e2b0164"
+mydb="dd2dls9d93hae6"
+
 
 @app.route("/data.json")
 def data():
@@ -52,19 +52,19 @@ def getData():
 	# import pymysql.cursors
 	import psycopg2
 
-
 	#db = mysql.connector.connect(host="140.120.15.45",user="toto321", passwd="12345678", db="lightdb")
 	#conn = mysql.connector.connect(host=myserver,user=myuser, passwd=mypassword, db=mydb)
 	# conn = pymysql.connect(host=myserver,user=myuser, passwd=mypassword, db=mydb)
 	
 	#    postgresql(heroku免費DB)
 	# psycopg2.connect(f'host={myserver} user={test123} password={test123} dbname={aiotdb}')
-	conn = psycopg2.connect(DATABASE_URL)
-	# conn=psycopg2.connect(f'host={myserver} user={myuser} password={mypassword} dbname={mydb}')
+
+	conn=psycopg2.connect(f'host={myserver} user={myuser} password={mypassword} dbname={mydb}')
 	c = conn.cursor()
+ 
 
 	#====== 執行 MySQL 查詢指令 ======#
- 
+	# c.execute("update sensors set value = RAND()*1000 where true")
 	c.execute("update sensors set value = RANDOM()*1000 where true")
 	conn.commit()
 	
@@ -116,12 +116,8 @@ def getPredict():
 	# conn = pymysql.connect(host=myserver,user=myuser, passwd=mypassword, db=mydb)
 	
 	import psycopg2
-	# conn=psycopg2.connect(f'host={myserver} user={myuser} password={mypassword} dbname={mydb}')
-	# c = conn.cursor()
-	conn = psycopg2.connect(DATABASE_URL)
-	# conn=psycopg2.connect(f'host={myserver} user={myuser} password={mypassword} dbname={mydb}')
+	conn=psycopg2.connect(f'host={myserver} user={myuser} password={mypassword} dbname={mydb}')
 	c = conn.cursor()
- 
 	if debug:
 		input("pause.. conn.cursor() ok.......")
 	
