@@ -73,20 +73,26 @@ mydb="<fill-in-Heroku-Postgredb-DB-db>"
 * 點擊setRandom跟callAI按鈕看是否可以輸出相對應的highchart
 ### step 8: deploy to github (new public github repositoy)
 
+* 將剛剛更改的程式都git上github
 delete .git and git remote add origin master github.com/xxxxx
-
 
 ### step 9: Heroku deploy from github
 
+* 在heroku頁面中連結至我github的repository
+* deploy後就可以得到連結
 ### step 10: Complete
 
-Sample link 1:
-https://awinlab-aiot.herokuapp.com/
+* 點開從step9得到的連結即可在遠端執行程式並出現highchart，完成！
 
-Sample link 2: 
-https://aiot0529.herokuapp.com/
+My link:
+https://aiot0531csl.herokuapp.com/
 
+Success img:
+* 一開始點開的起始畫面就是有用模型預測出的highchart圖
+![](img%5CAI.png)
 
+* 點擊setRandom可以得到隨機的呈現的highchart(可以從連結中看到有/noAI)
+![](img%5CnoAI.png)
 
 
 
