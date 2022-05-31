@@ -55,7 +55,7 @@ mydb="<fill-in-Heroku-Postgredb-DB-db>"
 * 通過create table跟insert將資料寫入db中
 (若不確定是否有正確上傳，可以去heruku的網站overview現有的db看是否有成功上傳)
 
-### step 6: setting db in app.py
+### step 6 (法一): setting db in app.py
 
 * 在app.py中加入db的帳密跟server
 (要讓app.py可以去access剛剛建立的db)
@@ -67,6 +67,22 @@ mypassword="<fill-in-Heroku-Postgredb-DB-pwd>"
 mydb="<fill-in-Heroku-Postgredb-DB-db>"
 
 ```
+
+### step 6  (法二): setting db in app.py (with url)
+
+heroku給的credential並不是permanent的，若直接用一開始給的帳密去access database，雖然一開始是可以成功打開的，但在heroku做完maintance(大約幾小時後)，更動credential網頁就無法成功fetch database，所以如果希望可以讓db能持續被access，我改用DATABASE_URL去fetch我放在heroku中的db，具體操作如下：
+* 從dashboard打開我要用的app並點擊設定
+* 往下滑後可以看到reveal config var
+* 將config var show出來就可以看到屬於我的DATABASE_URL
+![image](./img/dburl.png)
+* 得到連結之後就可以直接用這個連結去fetch我們的db了！
+**同時也不用擔心密碼會外洩給權限比較低的人員，導致資料庫被任意修改**
+
+```conn = psycopg2.connect(DATABASE_URL)
+c = conn.cursor()
+```
+
+此步驟之參考網頁：https://github.com/EverWinter23/postgres-heroku, https://www.progress.com/tutorials/jdbc/connect-to-postgresql-on-heroku-using-odbc-and-jdbc-drivers 
 ### step 7: testing locally by running python app.py
 
 * 執行app.py並點開連結

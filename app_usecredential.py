@@ -8,7 +8,7 @@ app = Flask(__name__)
 # the following configuration must use heroku add-on postgredb
 myserver ="ec2-54-211-255-161.compute-1.amazonaws.com"
 myuser="tbufgxkwtezdgp"
-mypassword="f78345126759bd6f6daa61e3bf91b245ac874cadbd42df836925ba4e9e2b0164"
+mypassword="<fill-in-Heroku-Postgredb-DB-pwd>"
 mydb="dd2dls9d93hae6"
 
 
