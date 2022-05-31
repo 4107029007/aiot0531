@@ -4,7 +4,7 @@
 #### Author: Norah Lin
 
 ### Target
-1. 使用local app.py但使用遠端DB
+使用local app.py但使用遠端DB
 ### step 0 : Clone this github
 
 * 註冊 Heroku, github 請下載 HeidiSQL, VS code
@@ -42,18 +42,13 @@ numpy
 * library選最新的
 * user跟host等都依序填入heroku中credential的資料
 
-```sql
-myserver ="<fill-in-Heroku-Postgredb-DB-sever>"
-myuser="<fill-in-Heroku-Postgredb-DB-user>"
-mypassword="<fill-in-Heroku-Postgredb-DB-pwd>"
-mydb="<fill-in-Heroku-Postgredb-DB-db>"
-
-```
 ### step 5: import postgredb (in db/postgre.db)
 
 * 連接至postgredb後，載入預先寫好的sql檔並執行
 * 通過create table跟insert將資料寫入db中
+![image](./img/db.png)
 (若不確定是否有正確上傳，可以去heruku的網站overview現有的db看是否有成功上傳)
+
 
 ### step 6 (法一): setting db in app.py
 
