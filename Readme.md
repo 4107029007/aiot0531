@@ -75,10 +75,11 @@ heroku給的credential並不是permanent的，若直接用一開始給的帳密�
 * 往下滑後可以看到reveal config var
 * 將config var show出來就可以看到屬於我的DATABASE_URL
 ![image](./img/dburl.png)
-* 得到連結之後就可以直接用這個連結去fetch我們的db了！
+* 得到連結之後就可以直接用這個連結去fetch我們的db了！\
 **同時也不用擔心密碼會外洩給權限比較低的人員，導致資料庫被任意修改**
 
-```conn = psycopg2.connect(DATABASE_URL)
+```
+conn = psycopg2.connect(DATABASE_URL)
 c = conn.cursor()
 ```
 
