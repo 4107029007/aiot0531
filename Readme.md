@@ -65,7 +65,7 @@ mydb="<fill-in-Heroku-Postgredb-DB-db>"
 
 ### step 6  (法二): setting db in app.py (with url)
 
-heroku給的credential並不是permanent的，若直接用一開始給的帳密去access database，雖然一開始是可以成功打開的，但在heroku做完maintance(大約幾小時後)，更動credential網頁就無法成功fetch database，所以如果希望可以讓db能持續被access，我改用DATABASE_URL去fetch我放在heroku中的db，具體操作如下：
+heroku給的credential並不是permanent的，若直接用一開始給的帳密去存取db，雖然可以成功打開，但在heroku做完maintance後(大約幾小時後會進行維護)，更動credential網頁就無法成功讀取db，所以如果希望可以讓db能持續被存取，我改用DATABASE_URL去fetch我放在heroku中的db，具體操作如下：
 * 從dashboard打開我要用的app並點擊設定
 * 往下滑後可以看到reveal config var
 * 將config var show出來就可以看到屬於我的DATABASE_URL
